@@ -20,6 +20,7 @@ async function getToken() {
 async function search() {
   const query = document.getElementById('searchInput').value;
   const resultsDiv = document.getElementById('results');
+
   resultsDiv.innerHTML = '<p style="color:#ccc;">🔄 Loading...</p>';
 
   if (!query) {
@@ -28,11 +29,15 @@ async function search() {
   }
 
   const token = await getToken();
-  const response = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(query)}&type=track&limit=8`, {
-    headers: {
-      'Authorization': 'Bearer ' + token
+
+  const response = await fetch(
+    `https://api.spotify.com/v1/search?q=${encodeURIComponent(query)}&type=track&limit=8`,
+    {
+      headers: {
+        'Authorization': 'Bearer ' + token
+      }
     }
-  });
+  );
 
   const data = await response.json();
   resultsDiv.innerHTML = '';
@@ -47,12 +52,29 @@ async function search() {
       ? `<audio controls src="${track.preview_url}"></audio>`
       : `<p style="font-size: 14px; color: #bbb;">🎧 No preview available</p>`;
 
+    const spotifyLink = track.external_urls.spotify;
+
     resultsDiv.innerHTML += `
-      <div class="track-card">
-        <img src="${track.album.images[0].url}" alt="Album Cover" />
-        <p><strong>${track.name}</strong></p>
-        <p>${track.artists[0].name}</p>
-        ${preview}
+      <div class="track-card" 
+          onclick="window.open('${spotifyLink}', '_blank')" 
+          style="
+            cursor: pointer;
+            border: 1px solid #333;
+            padding: 12px;
+            margin-bottom: 12px;
+            border-radius: 10px;
+            background-color: #1e1e1e;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+          ">
+        <img src="${track.album.images[0].url}" alt="Album Cover" style="width: 80px; height: 80px; border-radius: 6px;" />
+        <div>
+          <p style="margin: 0;"><strong>${track.name}</strong></p>
+          <p style="margin: 4px 0;">${track.artists[0].name}</p>
+          ${preview}
+        </div>
       </div>
     `;
   });
