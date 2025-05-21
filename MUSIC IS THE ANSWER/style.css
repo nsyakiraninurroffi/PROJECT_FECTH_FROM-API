@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f8cdda, #1d2b64);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.app {
+  width: 100%;
+  max-width: 900px;
+  padding: 30px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+header h1 {
+  margin-bottom: 10px;
+  font-size: 2.2rem;
+  background: linear-gradient(to right, #ffecd2, #fcb69f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+header p {
+  margin-bottom: 30px;
+  color: #ddd;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+input[type="text"] {
+  padding: 12px 20px;
+  width: 60%;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  backdrop-filter: blur(4px);
+}
+
+input::placeholder {
+  color: #ccc;
+}
+
+button {
+  padding: 12px 20px;
+  background: linear-gradient(to right, #ff9a9e, #fad0c4);
+  color: #333;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+  color: #222;
+}
+
+.results {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.track-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  transition: transform 0.3s ease;
+}
+
+.track-card:hover {
+  transform: scale(1.05);
+}
+
+.track-card img {
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.track-card p {
+  margin: 6px 0;
+  color: #ffe;
+}
+
+audio {
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 10px;
+}
