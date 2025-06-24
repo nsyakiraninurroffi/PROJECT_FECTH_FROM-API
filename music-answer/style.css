@@ -1,85 +1,121 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+:root {
+  --bg-light: #f8cdda;
+  --bg-dark: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  --text-light: #fff;
+  --text-dark: #111;
+  --accent: #ff9a9e;
+  --primary: #1d2b64;
+}
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #f8cdda, #1d2b64);
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, var(--bg-light), var(--primary));
+  color: var(--text-light);
+  transition: all 0.5s ease;
 }
 
-.app {
+body.dark {
+  background: var(--bg-dark);
+  color: var(--text-light);
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
   width: 100%;
-  max-width: 900px;
-  padding: 30px;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(10px);
+  z-index: 1000;
 }
 
-header h1 {
+.logo {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+#darkModeToggle {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.hero {
+  text-align: center;
+  padding: 80px 20px 40px;
+  animation: fadeIn 1.5s ease-out;
+}
+
+.hero h1 {
+  font-size: 2.7rem;
   margin-bottom: 10px;
-  font-size: 2.2rem;
   background: linear-gradient(to right, #ffecd2, #fcb69f);
   -webkit-background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-header p {
-  margin-bottom: 30px;
-  color: #ddd;
+.hero p {
+  font-size: 1rem;
+  color: #eee;
+  animation: slideInUp 1s ease-out;
 }
 
-.search-box {
+.search-section {
   display: flex;
   justify-content: center;
   gap: 10px;
   flex-wrap: wrap;
-  margin-bottom: 40px;
+  margin: 20px;
 }
 
-input[type="text"] {
+.search-section input {
   padding: 12px 20px;
   width: 60%;
+  max-width: 400px;
   border-radius: 25px;
   border: none;
   outline: none;
   font-size: 16px;
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
-  backdrop-filter: blur(4px);
 }
 
-input::placeholder {
+.search-section input::placeholder {
   color: #ccc;
 }
 
-button {
+.search-section button {
   padding: 12px 20px;
-  background: linear-gradient(to right, #ff9a9e, #fad0c4);
+  background: linear-gradient(to right, var(--accent), #fad0c4);
   color: #333;
   border: none;
   border-radius: 25px;
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.3s ease;
 }
 
-button:hover {
+.search-section button:hover {
   background: linear-gradient(to right, #fbc2eb, #a6c1ee);
-  color: #222;
 }
 
 .results {
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .track-card {
@@ -89,6 +125,10 @@ button:hover {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(5px);
   transition: transform 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .track-card:hover {
@@ -103,11 +143,63 @@ button:hover {
 
 .track-card p {
   margin: 6px 0;
-  color: #ffe;
+  text-align: center;
 }
 
 audio {
   width: 100%;
   margin-top: 10px;
-  border-radius: 10px;
+}
+
+.footer {
+  text-align: center;
+  padding: 40px 20px 60px;
+  font-size: 0.9rem;
+  color: #eee;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .search-section input {
+    width: 90%;
+  }
+
+  .results {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .results {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

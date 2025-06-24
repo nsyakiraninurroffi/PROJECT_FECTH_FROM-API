@@ -1,29 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Spotify Music Search</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nsy Project API-Music</title>
+<!-- Font & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+<link rel="stylesheet" href="style.css" />
+
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
 
 <body>
-  <div class="app">
+  <nav class="navbar">
+    <div class="logo">▶︎•၊၊||၊|။|||| | 𝄞 ♪</div>
+    <div class="logo">nsyTuneSpace</div>
+    <div class="logo">ᯤSpotify</div>
+    <button id="darkModeToggle"><i class="fas fa-moon"></i></button>
+  </nav>
+
+  <section class="hero" data-aos="fade-up">
+    <h1 id="typed"></h1>
     <header>
-      <h1>🎵 ℳ𝓊𝓈𝒾𝒸 𝐼𝓈 𝒯𝒽ℯ 𝒜𝓃𝓈𝓌ℯ𝓇 ִֶָ. ..𓂃 ࣪ ִֶָ🦋་༘࿐</h1>
+      <h1>🎵 ℳ𝓊𝓈𝒾𝒸 𝐼𝓈 𝒯𝒽ℯ 𝒜𝓃𝓈𝓌ℯ𝓇 🦋་༘࿐</h1>
       <h2>────୨ৎ────</h2>
       <p>Cari lagu favoritmu di sini♪‧₊˚</p>
     </header>
+  </section>
 
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Masukkan nama lagu atau artis..." />
-      <button onclick="search()">🔍︎ Cari</button>
-    </div>
+  <section class="search-section" data-aos="fade-up">
+    <input type="text" id="searchInput" placeholder="Masukkan nama lagu atau artis..." />
+    <button onclick="search()">🔍︎ Cari</button>
+  </section>
 
-    <div id="results" class="results"></div>
-  </div>
+  <section id="results" class="results" data-aos="fade-up"></section>
 
+  <footer class="footer">
+    <p>Designed with ✨ by nsy – crafted to vibe with your soul ♫</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="script.js"></script>
 </body>
 
